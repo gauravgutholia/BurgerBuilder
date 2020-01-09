@@ -61,6 +61,13 @@ class BurgerBuilder extends Component {
             disabledInfo[key] = disabledInfo[key] <= 0
         }
 
+        let disableButton
+
+        if (this.state.totalPrice <= 4)
+        {
+            disableButton = true
+        }
+
         return (
             <Aux>
                 <Burger ingredients={this.state.ingredients} />
@@ -69,6 +76,7 @@ class BurgerBuilder extends Component {
                     ingredientRemoved={this.removeIngredientHandler}
                     disabled={disabledInfo}
                     price={this.state.totalPrice}
+                    disableButton = {disableButton}
                 />
             </Aux>
         )
